@@ -71,42 +71,41 @@ $(function () {
 
 function displayBot() {
     $('.chatbox__button').click(function () {
-        $('.chatbox__chat').toggle()
+        
     });
     //Iniciar la conversación con el Bot.
-    askBot()
+    
 }
 
 function askBot() {
     $("#send_button").click(function () {
 
-        var user_bot_input_text = $("#bot_input_text").val()
+
 
         if (user_bot_input_text != "") {
            
-            $("#chat_messages").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
+            
             
             //Vaciar la entrada de texto después de enviar el mensaje.
-            $("#bot_input_text").val('');
+            
 
             let chat_input_data = {
-                "user_bot_input_text": user_bot_input_text
+                
             }
 
             $.ajax({
-                type: 'POST',
-                url: "/bot-response",
-                data: JSON.stringify(chat_input_data),
-                dataType: "json",
-                contentType: 'application/json',
+                type: '',
+                url: "",
+                data: ,
+                dataType: "",
+                contentType: '',
                     success: function (result) {
                         
-                        $("#chat_messages").append('<div class="bot__messages">' + result.bot_response + ' </div>')                        
-                        $('.chatbox__messages__cotainer').animate({
-                            scrollTop: $('.chatbox__messages__cotainer')[0].scrollHeight}, 1000);
+                        
+
                     },
                     error: function (result) {
-                        alert(result.responseJSON.message)
+                        
                     }
             });
 
@@ -115,8 +114,8 @@ function askBot() {
     })
     $('#bot_input_text').keypress(function(e){
         //Si se presiona la tecla entener (el código de la tecla es 13),
-        if(e.which == 13){         
-            $('#send_button').click(); //Desencadenar el evento de clic del botón enviar.
+        if(){         
+             //Desencadenar el evento de clic del botón enviar.
         }
     });
 }
