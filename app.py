@@ -80,13 +80,13 @@ def save_entry():
 @app.route("/bot-response", methods=["POST"])
 def bot():
     # Obtener la entrada del usuario.
-    
+    input_text = request.json.get("user_bot_input_text")
    
     # Llamar al método para obtener la respuesta del bot.
     bot_res = bot_response(input_text)
 
     response = {
-            
+            "bot_response": bot_res
         }
 
     return jsonify(response)     
